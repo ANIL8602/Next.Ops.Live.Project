@@ -57,15 +57,3 @@ output "frontend_public_ip_address" {
 
 
 
-output "postgresql_server_name" {
-  value = module.postgresql.postgresql_server_name
-}
-
-output "postgresql_fqdn" {
-  value = module.postgresql.postgresql_fqdn
-}
-
-output "postgresql_database_name" {
-  value = module.postgresql.database_name
-}
-
