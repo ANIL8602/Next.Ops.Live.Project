@@ -49,7 +49,7 @@ variable "nsg_config" {
 
 variable "vm_size" {
   type    = string
-  default = "Standard_B2s"
+  default = "Standard_B2als_v2"
 }
 
 variable "admin_username" {
