@@ -87,29 +87,3 @@ module "backend_vm" {
 
   tags = var.tags
 }
-
-
-
-module "postgresql" {
-  source = "../../modules/azurerm_postgresql"
-
-  server_name = var.postgresql_server_name
-  database_name = var.postgresql_database_name
-
-  location            = var.location
-  resource_group_name = module.resource_group.resource_group_name
-
-  virtual_network_id  = module.virtual_network.vnet_id
-  delegated_subnet_id = module.subnets["database"].subnet_id
-
-  private_dns_zone_name = var.private_dns_zone_name
-
-  administrator_login    = var.postgresql_admin_username
-  administrator_password = var.postgresql_admin_password
-
-  sku_name   = var.postgresql_sku
-  storage_mb = 32768
-
-  tags = var.tags
-}
-
