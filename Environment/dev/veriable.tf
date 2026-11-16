@@ -61,12 +61,3 @@ variable "vm_size" {
   type    = string
   default = "Standard_B2s"
 }
-
-
-variable "postgresql_server_name" {
-  type = string
-}
-
-variable "postgresql_database_name" {
-  type = string
-}
