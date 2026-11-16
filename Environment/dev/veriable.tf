@@ -1,15 +1,46 @@
 
 variable "resource_group_name" {
-  type        = string
-  description = "Development Resource Group"
+  type = string
 }
 
 variable "location" {
-  type        = string
-  description = "Azure region"
+  type = string
+}
+
+variable "vnet_name" {
+  type = string
+}
+
+variable "address_space" {
+  type = list(string)
 }
 
 variable "tags" {
   type    = map(string)
   default = {}
+}
+
+
+
+variable "subnets" {
+  description = "Subnet configurations"
+  type        = map(list(string))
+}
+
+
+
+variable "nsg_config" {
+  description = "NSG configuration for each subnet"
+
+  type = map(object({
+    nsg_name = string
+
+    security_rules = list(object({
+      name                   = string
+      priority               = number
+      protocol               = string
+      source_address_prefix  = string
+      destination_port_range = string
+    }))
+  }))
 }

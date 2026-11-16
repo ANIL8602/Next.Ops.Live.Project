@@ -3,10 +3,44 @@ output "resource_group_name" {
   value = module.resource_group.resource_group_name
 }
 
-output "resource_group_id" {
-  value = module.resource_group.resource_group_id
+output "vnet_name" {
+  value = module.virtual_network.vnet_name
 }
 
-output "resource_group_location" {
-  value = module.resource_group.resource_group_location
+output "vnet_id" {
+  value = module.virtual_network.vnet_id
+}
+
+output "vnet_address_space" {
+  value = module.virtual_network.vnet_address_space
+}
+
+
+output "subnet_ids" {
+  value = {
+    for name, subnet in module.subnets :
+    name => subnet.subnet_id
+  }
+}
+
+output "subnet_names" {
+  value = {
+    for name, subnet in module.subnets :
+    name => subnet.subnet_name
+  }
+}
+
+
+output "nsg_ids" {
+  value = {
+    for name, nsg in module.network_security_groups :
+    name => nsg.nsg_id
+  }
+}
+
+output "nsg_names" {
+  value = {
+    for name, nsg in module.network_security_groups :
+    name => nsg.nsg_name
+  }
 }
