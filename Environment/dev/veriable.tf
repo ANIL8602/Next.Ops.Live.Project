@@ -44,3 +44,20 @@ variable "nsg_config" {
     }))
   }))
 }
+
+
+
+variable "admin_username" {
+  type    = string
+  default = "azureadmin"
+}
+
+variable "admin_password" {
+  type      = string
+  sensitive = true
+}
+
+variable "vm_size" {
+  type    = string
+  default = "Standard_B2s"
+}

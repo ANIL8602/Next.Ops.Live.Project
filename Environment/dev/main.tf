@@ -39,3 +39,50 @@ module "network_security_groups" {
   security_rules      = each.value.security_rules
   tags                = var.tags
 }
+
+
+module "frontend_public_ip" {
+  source = "../../modules/azurerm_public_ips"
+
+  public_ip_name     = "nextops-frontend-pip"
+  location           = var.location
+  resource_group_name = module.resource_group.resource_group_name
+
+  tags = var.tags
+}
+
+
+module "frontend_vm" {
+  source = "../../modules/azurerm_virtual_machines"
+
+  vm_name            = "nextops-frontend-vm"
+  location           = var.location
+  resource_group_name = module.resource_group.resource_group_name
+
+  subnet_id   = module.subnets["frontend"].subnet_id
+  public_ip_id = module.frontend_public_ip.public_ip_id
+
+  vm_size             = var.vm_size
+  admin_username      = var.admin_username
+
+  admin_password = var.admin_password
+
+  tags = var.tags
+}
+
+module "backend_vm" {
+  source = "../../modules/azurerm_virtual_machines"
+
+  vm_name            = "nextops-backend-vm"
+  location           = var.location
+  resource_group_name = module.resource_group.resource_group_name
+
+  subnet_id = module.subnets["backend"].subnet_id
+
+  vm_size              = var.vm_size
+  admin_username       = var.admin_username
+  admin_password = var.admin_password
+
+  tags = var.tags
+}
+

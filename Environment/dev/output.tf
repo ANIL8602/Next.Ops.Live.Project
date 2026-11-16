@@ -44,3 +44,13 @@ output "nsg_names" {
     name => nsg.nsg_name
   }
 }
+
+
+
+output "frontend_public_ip_name" {
+  value = module.frontend_public_ip.public_ip_name
+}
+
+output "frontend_public_ip_address" {
+  value = module.frontend_public_ip.public_ip_address
+}
