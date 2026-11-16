@@ -61,3 +61,30 @@ variable "vm_size" {
   type    = string
   default = "Standard_B2s"
 }
+
+
+variable "postgresql_server_name" {
+  type = string
+}
+
+variable "postgresql_database_name" {
+  type = string
+}
+
+variable "private_dns_zone_name" {
+  type = string
+}
+
+variable "postgresql_admin_username" {
+  type = string
+}
+
+variable "postgresql_admin_password" {
+  type      = string
+  sensitive = true
+}
+
+variable "postgresql_sku" {
+  type    = string
+  default = "B_Standard_B1ms"
+}

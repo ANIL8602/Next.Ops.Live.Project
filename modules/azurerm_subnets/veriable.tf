@@ -1,20 +1,22 @@
 
 variable "subnet_name" {
-  description = "Subnet name"
-  type        = string
+  type = string
 }
 
 variable "resource_group_name" {
-  description = "Resource Group name"
-  type        = string
+  type = string
 }
 
 variable "virtual_network_name" {
-  description = "Virtual Network name"
-  type        = string
+  type = string
 }
 
 variable "address_prefixes" {
-  description = "Subnet address prefixes"
-  type        = list(string)
+  type = list(string)
 }
+
+variable "delegation_name" {
+  type    = string
+  default = null
+}
+
