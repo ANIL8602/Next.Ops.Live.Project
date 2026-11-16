@@ -54,6 +54,12 @@ output "frontend_public_ip_name" {
 output "frontend_public_ip_address" {
   value = module.frontend_public_ip.public_ip_address
 }
+output "backend_public_ip_name" {
+  value = module.backend_public_ip.public_ip_name
+}
 
+output "backend_public_ip_address" {
+  value = module.backend_public_ip.public_ip_address
+}
 
 
