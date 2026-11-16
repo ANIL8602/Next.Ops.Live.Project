@@ -47,6 +47,11 @@ variable "nsg_config" {
 
 
 
+variable "vm_size" {
+  type    = string
+  default = "Standard_B2s"
+}
+
 variable "admin_username" {
   type    = string
   default = "azureadmin"
@@ -55,18 +60,4 @@ variable "admin_username" {
 variable "admin_password" {
   type      = string
   sensitive = true
-}
-
-variable "vm_size" {
-  type    = string
-  default = "Standard_B2s"
-}
-
-
-variable "postgresql_server_name" {
-  type = string
-}
-
-variable "postgresql_database_name" {
-  type = string
 }
